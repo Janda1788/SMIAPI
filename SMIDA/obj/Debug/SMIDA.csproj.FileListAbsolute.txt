@@ -1,0 +1,10 @@
+c:\users\janda\documents\visual studio 2013\Projects\SMIAPITEST001\SMIDA\bin\Debug\SMIDA.dll.config
+c:\users\janda\documents\visual studio 2013\Projects\SMIAPITEST001\SMIDA\bin\Debug\SMIDA.dll
+c:\users\janda\documents\visual studio 2013\Projects\SMIAPITEST001\SMIDA\bin\Debug\SMIDA.pdb
+c:\users\janda\documents\visual studio 2013\Projects\SMIAPITEST001\SMIDA\bin\Debug\EntityFramework.dll
+c:\users\janda\documents\visual studio 2013\Projects\SMIAPITEST001\SMIDA\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\janda\documents\visual studio 2013\Projects\SMIAPITEST001\SMIDA\bin\Debug\EntityFramework.xml
+c:\users\janda\documents\visual studio 2013\Projects\SMIAPITEST001\SMIDA\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\janda\documents\visual studio 2013\Projects\SMIAPITEST001\SMIDA\obj\Debug\SMIDA.dll
+c:\users\janda\documents\visual studio 2013\Projects\SMIAPITEST001\SMIDA\obj\Debug\SMIDA.pdb
+C:\Users\Janda\documents\visual studio 2013\Projects\SMIAPITEST001\SMIDA\obj\Debug\SMIDA.csprojResolveAssemblyReference.cache

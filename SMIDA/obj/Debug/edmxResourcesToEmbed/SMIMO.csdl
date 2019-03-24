@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SMIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SMI_Church">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Church" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SMI_CountryChurch" Relationship="Self.FK_SMI_CountryChurch_SMI_Church" FromRole="SMI_Church" ToRole="SMI_CountryChurch" />
+    <NavigationProperty Name="SMI_Treasury" Relationship="Self.FK_SMI_Treasury_SMI_Church" FromRole="SMI_Church" ToRole="SMI_Treasury" />
+  </EntityType>
+  <EntityType Name="SMI_Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SMI_CountryChurch" Relationship="Self.FK_SMI_CountryChurch_SMI_Country" FromRole="SMI_Country" ToRole="SMI_CountryChurch" />
+  </EntityType>
+  <EntityType Name="SMI_CountryChurch">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCountry" Type="Int32" />
+    <Property Name="IdChurch" Type="Int32" />
+    <NavigationProperty Name="SMI_Church" Relationship="Self.FK_SMI_CountryChurch_SMI_Church" FromRole="SMI_CountryChurch" ToRole="SMI_Church" />
+    <NavigationProperty Name="SMI_Country" Relationship="Self.FK_SMI_CountryChurch_SMI_Country" FromRole="SMI_CountryChurch" ToRole="SMI_Country" />
+  </EntityType>
+  <EntityType Name="SMI_Treasury">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDChurch" Type="Int32" Nullable="false" />
+    <Property Name="TreasuryMonth" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDUser" Type="Int32" Nullable="false" />
+    <Property Name="TreasuryDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="SMI_Church" Relationship="Self.FK_SMI_Treasury_SMI_Church" FromRole="SMI_Treasury" ToRole="SMI_Church" />
+    <NavigationProperty Name="SMI_User" Relationship="Self.FK_SMI_Treasury_SMI_User" FromRole="SMI_Treasury" ToRole="SMI_User" />
+    <NavigationProperty Name="SMI_TreasuryDetail" Relationship="Self.FK_SMI_TreasuryDetail_SMI_Treasury" FromRole="SMI_Treasury" ToRole="SMI_TreasuryDetail" />
+  </EntityType>
+  <EntityType Name="SMI_TreasuryDetail">
+    <Key>
+      <PropertyRef Name="IdTreasury" />
+    </Key>
+    <Property Name="IdTreasury" Type="Int32" Nullable="false" />
+    <Property Name="TenPercent" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="TenPercentLocal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="FirstFruits" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="FirstFruitsLocal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SabbathSchool" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SabbathSchoolLocal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SpecialSabbathSchool" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SpecialSabbathSchoolLocal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="AssociationOffering" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="AssociationOfferingLocal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="EmergencyFund" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="EmergencyFundLocal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ChurchTenPercent" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ChurchTenPercentLocal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="WeekOfPrayer" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="WeekOfPrayerLocal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Others" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="OthersLocal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="MonetaryReductions" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="MonetaryReductionsLocal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="TreasuryDetailDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="SMI_Treasury" Relationship="Self.FK_SMI_TreasuryDetail_SMI_Treasury" FromRole="SMI_TreasuryDetail" ToRole="SMI_Treasury" />
+  </EntityType>
+  <EntityType Name="SMI_User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pwd" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sta" Type="Byte" Nullable="false" />
+    <Property Name="UserCreationDate" Type="DateTime" Precision="0" />
+    <Property Name="UserUpdateDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="SMI_Treasury" Relationship="Self.FK_SMI_Treasury_SMI_User" FromRole="SMI_User" ToRole="SMI_Treasury" />
+  </EntityType>
+  <Association Name="FK_SMI_CountryChurch_SMI_Church">
+    <End Role="SMI_Church" Type="Self.SMI_Church" Multiplicity="0..1" />
+    <End Role="SMI_CountryChurch" Type="Self.SMI_CountryChurch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMI_Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SMI_CountryChurch">
+        <PropertyRef Name="IdChurch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMI_Treasury_SMI_Church">
+    <End Role="SMI_Church" Type="Self.SMI_Church" Multiplicity="1" />
+    <End Role="SMI_Treasury" Type="Self.SMI_Treasury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMI_Church">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SMI_Treasury">
+        <PropertyRef Name="IDChurch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMI_CountryChurch_SMI_Country">
+    <End Role="SMI_Country" Type="Self.SMI_Country" Multiplicity="0..1" />
+    <End Role="SMI_CountryChurch" Type="Self.SMI_CountryChurch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMI_Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SMI_CountryChurch">
+        <PropertyRef Name="IdCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMI_Treasury_SMI_User">
+    <End Role="SMI_User" Type="Self.SMI_User" Multiplicity="1" />
+    <End Role="SMI_Treasury" Type="Self.SMI_Treasury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMI_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SMI_Treasury">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMI_TreasuryDetail_SMI_Treasury">
+    <End Role="SMI_Treasury" Type="Self.SMI_Treasury" Multiplicity="1" />
+    <End Role="SMI_TreasuryDetail" Type="Self.SMI_TreasuryDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SMI_Treasury">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SMI_TreasuryDetail">
+        <PropertyRef Name="IdTreasury" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DefaultConnection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SMI_Church" EntityType="Self.SMI_Church" />
+    <EntitySet Name="SMI_Country" EntityType="Self.SMI_Country" />
+    <EntitySet Name="SMI_CountryChurch" EntityType="Self.SMI_CountryChurch" />
+    <EntitySet Name="SMI_Treasury" EntityType="Self.SMI_Treasury" />
+    <EntitySet Name="SMI_TreasuryDetail" EntityType="Self.SMI_TreasuryDetail" />
+    <EntitySet Name="SMI_User" EntityType="Self.SMI_User" />
+    <AssociationSet Name="FK_SMI_CountryChurch_SMI_Church" Association="Self.FK_SMI_CountryChurch_SMI_Church">
+      <End Role="SMI_Church" EntitySet="SMI_Church" />
+      <End Role="SMI_CountryChurch" EntitySet="SMI_CountryChurch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMI_Treasury_SMI_Church" Association="Self.FK_SMI_Treasury_SMI_Church">
+      <End Role="SMI_Church" EntitySet="SMI_Church" />
+      <End Role="SMI_Treasury" EntitySet="SMI_Treasury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMI_CountryChurch_SMI_Country" Association="Self.FK_SMI_CountryChurch_SMI_Country">
+      <End Role="SMI_Country" EntitySet="SMI_Country" />
+      <End Role="SMI_CountryChurch" EntitySet="SMI_CountryChurch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMI_Treasury_SMI_User" Association="Self.FK_SMI_Treasury_SMI_User">
+      <End Role="SMI_User" EntitySet="SMI_User" />
+      <End Role="SMI_Treasury" EntitySet="SMI_Treasury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMI_TreasuryDetail_SMI_Treasury" Association="Self.FK_SMI_TreasuryDetail_SMI_Treasury">
+      <End Role="SMI_Treasury" EntitySet="SMI_Treasury" />
+      <End Role="SMI_TreasuryDetail" EntitySet="SMI_TreasuryDetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

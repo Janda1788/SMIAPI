@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SMIModelStoreContainer" CdmEntityContainer="DefaultConnection">
+    <EntitySetMapping Name="SMI_Church">
+      <EntityTypeMapping TypeName="SMIModel.SMI_Church">
+        <MappingFragment StoreEntitySet="SMI_Church">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Church" ColumnName="Church" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMI_Country">
+      <EntityTypeMapping TypeName="SMIModel.SMI_Country">
+        <MappingFragment StoreEntitySet="SMI_Country">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMI_CountryChurch">
+      <EntityTypeMapping TypeName="SMIModel.SMI_CountryChurch">
+        <MappingFragment StoreEntitySet="SMI_CountryChurch">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+          <ScalarProperty Name="IdChurch" ColumnName="IdChurch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMI_Treasury">
+      <EntityTypeMapping TypeName="SMIModel.SMI_Treasury">
+        <MappingFragment StoreEntitySet="SMI_Treasury">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IDChurch" ColumnName="IDChurch" />
+          <ScalarProperty Name="TreasuryMonth" ColumnName="TreasuryMonth" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="TreasuryDate" ColumnName="TreasuryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMI_TreasuryDetail">
+      <EntityTypeMapping TypeName="SMIModel.SMI_TreasuryDetail">
+        <MappingFragment StoreEntitySet="SMI_TreasuryDetail">
+          <ScalarProperty Name="IdTreasury" ColumnName="IdTreasury" />
+          <ScalarProperty Name="TenPercent" ColumnName="TenPercent" />
+          <ScalarProperty Name="TenPercentLocal" ColumnName="TenPercentLocal" />
+          <ScalarProperty Name="FirstFruits" ColumnName="FirstFruits" />
+          <ScalarProperty Name="FirstFruitsLocal" ColumnName="FirstFruitsLocal" />
+          <ScalarProperty Name="SabbathSchool" ColumnName="SabbathSchool" />
+          <ScalarProperty Name="SabbathSchoolLocal" ColumnName="SabbathSchoolLocal" />
+          <ScalarProperty Name="SpecialSabbathSchool" ColumnName="SpecialSabbathSchool" />
+          <ScalarProperty Name="SpecialSabbathSchoolLocal" ColumnName="SpecialSabbathSchoolLocal" />
+          <ScalarProperty Name="AssociationOffering" ColumnName="AssociationOffering" />
+          <ScalarProperty Name="AssociationOfferingLocal" ColumnName="AssociationOfferingLocal" />
+          <ScalarProperty Name="EmergencyFund" ColumnName="EmergencyFund" />
+          <ScalarProperty Name="EmergencyFundLocal" ColumnName="EmergencyFundLocal" />
+          <ScalarProperty Name="ChurchTenPercent" ColumnName="ChurchTenPercent" />
+          <ScalarProperty Name="ChurchTenPercentLocal" ColumnName="ChurchTenPercentLocal" />
+          <ScalarProperty Name="WeekOfPrayer" ColumnName="WeekOfPrayer" />
+          <ScalarProperty Name="WeekOfPrayerLocal" ColumnName="WeekOfPrayerLocal" />
+          <ScalarProperty Name="Others" ColumnName="Others" />
+          <ScalarProperty Name="OthersLocal" ColumnName="OthersLocal" />
+          <ScalarProperty Name="MonetaryReductions" ColumnName="MonetaryReductions" />
+          <ScalarProperty Name="MonetaryReductionsLocal" ColumnName="MonetaryReductionsLocal" />
+          <ScalarProperty Name="TreasuryDetailDate" ColumnName="TreasuryDetailDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMI_User">
+      <EntityTypeMapping TypeName="SMIModel.SMI_User">
+        <MappingFragment StoreEntitySet="SMI_User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sta" ColumnName="Sta" />
+          <ScalarProperty Name="UserCreationDate" ColumnName="UserCreationDate" />
+          <ScalarProperty Name="UserUpdateDate" ColumnName="UserUpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
